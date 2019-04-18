@@ -1,6 +1,5 @@
 package com.conan.servlet;
 
-import com.conan.dao.MessageDao;
 import com.conan.service.ListService;
 
 import javax.servlet.ServletException;
