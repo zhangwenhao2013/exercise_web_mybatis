@@ -20,7 +20,11 @@ public class MessageBatisDao implements MessageDaoImpl {
         List<Message> queryMessages = null;
         try {
             sqlSession = DbAccess.getSqlSession();
-            queryMessages = sqlSession.selectList("Message.queryMessages");
+            Message message = new Message();
+            message.setCommand(command);
+            message.setDescription(description);
+
+            queryMessages = sqlSession.selectList("Message.queryMessages", message);
             return queryMessages;
         } catch (IOException e) {
             e.printStackTrace();
