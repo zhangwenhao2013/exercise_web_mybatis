@@ -1,24 +1,27 @@
 package com.conan.dao;
 
+import com.conan.Db.DbAccess;
 import com.conan.beans.Message;
+import org.apache.ibatis.session.SqlSession;
 
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Dao 执行sql 获取操作结果  封装结果返回
- *
+ * <p>
  * 获取连接,加载驱动(不是DAO的工作)
  */
-public class MessageDao {
+public class MessageDao implements MessageDaoImpl{
 
+    @Override
     public List<Message> queryMessages(String command, String description) {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = null;
-
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/micro_message", "root", "12345678");
 
             String sql = "select id,command,description , content from message where  1=1";
@@ -54,7 +57,8 @@ public class MessageDao {
 
                 messageList.add(message);
             }
-
+//            statement.close();
+//            connection.close();
             return messageList;
 
         } catch (SQLException e) {
@@ -64,4 +68,5 @@ public class MessageDao {
         }
         return null;
     }
+
 }
