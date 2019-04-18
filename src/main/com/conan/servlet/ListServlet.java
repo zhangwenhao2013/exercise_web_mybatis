@@ -1,6 +1,7 @@
 package com.conan.servlet;
 
 import com.conan.dao.MessageDao;
+import com.conan.service.ListService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,8 +17,8 @@ public class ListServlet extends HttpServlet {
         String command = req.getParameter("command");
         String description = req.getParameter("description");
 
-        MessageDao messageDao = new MessageDao();
-        req.setAttribute("messageList", messageDao.queryMessages(command, description));
+        ListService listService = new ListService();
+        req.setAttribute("messageList", listService.queryMessageList(command, description));
         req.getRequestDispatcher("/WEB-INF/jsp/back/list.jsp").forward(req, resp);
 
     }

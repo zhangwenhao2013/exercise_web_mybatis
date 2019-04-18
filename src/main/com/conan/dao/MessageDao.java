@@ -6,6 +6,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Dao 执行sql 获取操作结果  封装结果返回
+ *
+ * 获取连接,加载驱动(不是DAO的工作)
+ */
 public class MessageDao {
 
     public List<Message> queryMessages(String command, String description) {
