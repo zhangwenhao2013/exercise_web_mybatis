@@ -9,7 +9,9 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.Reader;
 
-
+/**
+ * 获取连接,加载驱动
+ */
 public class DbAccess {
 
     /**
