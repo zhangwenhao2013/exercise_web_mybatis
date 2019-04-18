@@ -1,0 +1,26 @@
+第一阶段
+1:创建工程.选择web
+2:配置local tomcat ,配置depolyment
+3:工程配置 源码路径
+4:启动测试
+
+第二阶段
+1:添加页面
+2:添加tomcat servlet 依赖
+3:添加Servlet ,并且跳转验证
+
+
+第三阶段
+1:添加jdbc
+2:添加mysql connection driver
+
+
+第四
+1:修改jsp 界面
+2:使用c foreach/ if 标签 需要引入 jstl
+3:要使用es 表达式 ${}   需要引入 jsp-api
+4:设置 es 表达式 <%@ page isELIgnored="false" %>
+
+
+
+
