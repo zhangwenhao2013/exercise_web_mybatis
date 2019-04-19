@@ -168,7 +168,7 @@ org.apache.ibatis.exceptions.PersistenceException:
     
    ##### 注意::::  生产上面, 变量前面不要加%，会全表扫描
    
-2:增加log4J 日志
+2:增加log4J 日志 ( 1需要引入依赖 , 2:需要配置文件log4j.xml/properties , 3:需要修改mybatis配置文件)
 
 具体可以参考 
 
@@ -187,6 +187,7 @@ org.apache.ibatis.exceptions.PersistenceException:
 * 4: 配置文件需要放在resource目录下面  ==> 第一阶段 第3点关联;
 
 3: sql 映射文件 传参 使用map方式;
+
 
 
 
