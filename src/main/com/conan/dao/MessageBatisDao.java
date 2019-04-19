@@ -55,4 +55,19 @@ public class MessageBatisDao implements MessageDaoImpl {
             DbAccess.closeSqlSession(sqlSession);
         }
     }
+
+    @Override
+    public void deleteBathcMessages(List<Integer> list) {
+        SqlSession sqlSession = null;
+        try {
+            sqlSession = DbAccess.getSqlSession();
+            int delete = sqlSession.delete("Message.deleteBatchMessage", list);
+            sqlSession.commit();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            DbAccess.closeSqlSession(sqlSession);
+        }
+
+    }
 }

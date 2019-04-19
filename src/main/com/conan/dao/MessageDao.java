@@ -1,10 +1,7 @@
 package com.conan.dao;
 
-import com.conan.Db.DbAccess;
 import com.conan.beans.Message;
-import org.apache.ibatis.session.SqlSession;
 
-import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +68,11 @@ public class MessageDao implements MessageDaoImpl {
 
     @Override
     public void deleteOneMessages(String id) {
+    }
+
+    @Override
+    public void deleteBathcMessages(List<Integer> list) {
+
     }
 
 }

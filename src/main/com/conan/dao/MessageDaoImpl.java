@@ -8,7 +8,8 @@ public interface MessageDaoImpl {
 
     /**
      * 查询消息
-     * @param command  指令
+     *
+     * @param command     指令
      * @param description 描述
      * @return
      */
@@ -16,8 +17,11 @@ public interface MessageDaoImpl {
 
     /**
      * 删除单条message
+     *
      * @param id messageid
      * @return
      */
     void deleteOneMessages(String id);
+
+    void deleteBathcMessages(List<Integer> list);
 }

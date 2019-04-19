@@ -31,8 +31,20 @@
         </if>
     </select>
 
+    <!--单条删除-->
     <delete id="deleteOneMessage" parameterType="int">
         delete from MESSAGE where ID = #{_parameter}
+    </delete>
+
+    <!--批量删除-->
+    <delete id="deleteBatchMessage" parameterType="java.util.List">
+
+        delete from MESSAGE where ID in (
+        <foreach collection="list" item="item" separator=",">
+            #{item}
+        </foreach>
+        )
+
     </delete>
 
 </mapper>
