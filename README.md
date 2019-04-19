@@ -142,7 +142,7 @@ org.apache.ibatis.exceptions.PersistenceException:
 	org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
 	org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:150)
 	org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
-	com.conan.dao.MessageBatisDao.queryMessages(MessageBatisDao.java:27)
+	com.conan.dao.MessageBatisDaoImpl.queryMessages(MessageBatisDao.java:27)
 	com.conan.service.ListService.queryMessageList(ListService.java:16)
 	com.conan.servlet.ListServlet.doGet(ListServlet.java:20)
 	javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
@@ -209,8 +209,15 @@ org.apache.ibatis.exceptions.PersistenceException:
   filter  可以修改访问的Servlet,jsp , 但是不能直接返回数据;
   
   
+第14  批量删除  batch delete
 
+1: js 引入的方式
 
+```$xslt
+ <script src="<%= basePath%>resources/js/list.js"></script> 
+```
+
+2: 接口的实现才使用 XxxxImpl 命名 , 接口使用Xxx
 
 
 

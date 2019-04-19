@@ -1,19 +1,17 @@
 package com.conan;
 
 import com.conan.beans.Message;
-import com.conan.dao.MessageBatisDao;
-import com.conan.dao.MessageDaoImpl;
+import com.conan.dao.MessageBatisDaoImpl;
+import com.conan.dao.MessageDao;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        MessageDaoImpl messageDao = new MessageBatisDao();
+        MessageDao messageDao = new MessageBatisDaoImpl();
 //        messageDao.deleteOneMessages("6");
         List<Integer> integers = new ArrayList();
         integers.add(1);

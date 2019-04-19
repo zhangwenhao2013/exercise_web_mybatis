@@ -5,15 +5,13 @@ import com.conan.beans.Message;
 import org.apache.ibatis.session.SqlSession;
 
 import java.io.IOException;
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 /**
  * Dao 执行sql 获取操作结果  封装结果返回
  */
-public class MessageBatisDao implements MessageDaoImpl {
+public class MessageBatisDaoImpl implements MessageDao {
 
     @Override
     public List<Message> queryMessages(String command, String description) {

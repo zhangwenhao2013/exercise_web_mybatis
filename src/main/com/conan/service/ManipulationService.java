@@ -1,6 +1,6 @@
 package com.conan.service;
 
-import com.conan.dao.MessageBatisDao;
+import com.conan.dao.MessageBatisDaoImpl;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ public class ManipulationService {
     public void deleteOneMessage(String id) {
 
         if (id != null && !"".equals(id)) {
-            MessageBatisDao batisDao = new MessageBatisDao();
+            MessageBatisDaoImpl batisDao = new MessageBatisDaoImpl();
             batisDao.deleteOneMessages(id);
         }
     }
@@ -34,7 +34,7 @@ public class ManipulationService {
 
 //        List<String> list = Arrays.asList(ids);
 
-        MessageBatisDao dao = new MessageBatisDao();
+        MessageBatisDaoImpl dao = new MessageBatisDaoImpl();
         dao.deleteBathcMessages(list);
     }
 }
