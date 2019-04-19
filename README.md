@@ -198,6 +198,16 @@ org.apache.ibatis.exceptions.PersistenceException:
   daoimpl  隔离service 对 dao 的依赖
   dao层    的任务是请求数据库,执行sql
   DbAccess 提供链接数据库,返回dao需要的链接
+ 
+ 
+ 第13
+ 
+ 1:使用 Filter 处理字符问题
+ 
+ 2:复习 下 listener(ContentListener RequestListener SessionListener) 
+  filter  filterChain.doFilter(servletRequest, servletResponse); 放行
+  filter  可以修改访问的Servlet,jsp , 但是不能直接返回数据;
+  
   
 
 

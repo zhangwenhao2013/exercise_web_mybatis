@@ -12,7 +12,6 @@ public class DeleteOneServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.setCharacterEncoding("utf-8");
         String id = req.getParameter("id");
 
         ManipulationService manipulationService = new ManipulationService();

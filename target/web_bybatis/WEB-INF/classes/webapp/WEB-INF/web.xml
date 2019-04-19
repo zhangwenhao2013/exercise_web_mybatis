@@ -5,6 +5,27 @@
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
 
+
+    <filter>
+        <filter-name>filter</filter-name>
+        <filter-class>com.conan.filter.HttpRequestFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>filter</filter-name>
+        <url-pattern>/List.action</url-pattern>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>com.conan.listener.ApplicationListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.conan.listener.SessionListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.conan.listener.RequestListener</listener-class>
+    </listener>
+
     <servlet>
         <servlet-name>ListServlet</servlet-name>
         <servlet-class>com.conan.servlet.ListServlet</servlet-class>
