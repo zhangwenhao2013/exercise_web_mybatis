@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -24,7 +25,12 @@ public class MessageBatisDao implements MessageDaoImpl {
             message.setCommand(command);
             message.setDescription(description);
 
-            queryMessages = sqlSession.selectList("Message.queryMessages", message);
+            HashMap<String, String> paramMap = new HashMap<>();
+            paramMap.put("command", command);
+            paramMap.put("description", description);
+
+//            queryMessages = sqlSession.selectList("Message.queryMessages", message);
+            queryMessages = sqlSession.selectList("Message.queryMessagesWithMapParams", paramMap);
             return queryMessages;
         } catch (IOException e) {
             e.printStackTrace();

@@ -15,8 +15,19 @@
         select ID,COMMAND,DESCRIPTION,CONTENT from MESSAGE where 1=1
         <!--  #{command} mybatis 会将 #{} 处理成 ? 号 -->
         <if test="command!=null and !&quot;&quot;.equals(command.trim())">and COMMAND = #{command}</if>
-        <if test="description!=null and !&quot;&quot;.equals(description.trim())">and DESCRIPTION like
-            '%'#{description}'%'
+        <if test="description!=null and !&quot;&quot;.equals(description.trim())">
+            and DESCRIPTION like  '%' #{description} '%'
+        </if>
+    </select>
+
+    <select id="queryMessagesWithMapParams" parameterType="java.util.Map" resultMap="MessageResult">
+        select ID,COMMAND,DESCRIPTION,CONTENT from MESSAGE where 1=1
+
+        <if test="_parameter.command!=null and !''.equals(_parameter.command.trim())">and COMMAND =
+            #{_parameter.command}
+        </if>
+        <if test="_parameter.description!=null and !''.equals(_parameter.description.trim())">
+            and DESCRIPTION like '%' #{_parameter.description} '%'
         </if>
     </select>
 

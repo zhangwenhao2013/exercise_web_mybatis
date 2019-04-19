@@ -131,6 +131,9 @@ Java中的都可以 : + - * /  == != && || 等
 1:参数
 
 2: 注释 不能使用 /**/ 会报错  得使用<!-- 注释内容 -->
+```$xslt
+注释 不能使用 /**/ 会报错  得使用<!-- 注释内容 -->
+```
 
 ```
 org.apache.ibatis.exceptions.PersistenceException: 
@@ -150,12 +153,40 @@ org.apache.ibatis.exceptions.PersistenceException:
 
 ```
 1:ognl 支持 Java语法操作
-2:#{command} mybatis 会将 #{} 处理成 ? 号 
+2:#{command} mybatis 会将 #{} 处理成 ? 号   : 只有标签中才属于OEGL  真正的内容是属于mybatis的
 3: "".equals(command.trim())  "" 可以用 ''  双引号可以用单引号代替
 4:&quot;&quot;  也可以表示 ""
-5:&amp 可以表示 &&
+5:&amp; 可以表示 &&
 
 ```
+
+第11 
+
+1:修改like 语句的错误;
+
+    sql 映射文件  like 使用 '%' 时  需要在参数前后加 空格
+    
+   ##### 注意::::  生产上面, 变量前面不要加%，会全表扫描
+   
+2:增加log4J 日志
+
+具体可以参考 
+
+配置mybatis 配置log4j  [参考官网配置](http://www.mybatis.org/mybatis-3/zh/logging.html)
+
+[log4j 官方faq](http://logging.apache.org/log4j/1.2/faq.html#sysprops)
+
+注意点
+
+* 1:<setting> 标签 添加在configuration标签下,有顺序要求
+
+* 2:可以不调用 org.apache.ibatis.logging.LogFactory.useLog4JLogging();
+
+* 3:配置文件可以命名为  log4j.properties or log4j.xml
+
+* 4: 配置文件需要放在resource目录下面  ==> 第一阶段 第3点关联;
+
+3: sql 映射文件 传参 使用map方式;
 
 
 

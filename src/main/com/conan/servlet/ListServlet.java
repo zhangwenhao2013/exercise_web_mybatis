@@ -12,6 +12,8 @@ public class ListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+//        org.apache.ibatis.logging.LogFactory.useLog4JLogging();
+
         req.setCharacterEncoding("utf-8");
         String command = req.getParameter("command");
         String description = req.getParameter("description");
