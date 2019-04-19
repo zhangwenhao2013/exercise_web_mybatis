@@ -189,6 +189,18 @@ org.apache.ibatis.exceptions.PersistenceException:
 3: sql 映射文件 传参 使用map方式;
 
 
+第12
+ 
+1:CUD 区别于 R  是有事务操作的,需要手动commit事务
+
+2:servlet 的任务是接收 页面传值,返回service 给的结果 ,页面跳转
+  service 的任务是处理 请求参数,逻辑判断,处理数据结果
+  daoimpl  隔离service 对 dao 的依赖
+  dao层    的任务是请求数据库,执行sql
+  DbAccess 提供链接数据库,返回dao需要的链接
+  
+
+
 
 
 

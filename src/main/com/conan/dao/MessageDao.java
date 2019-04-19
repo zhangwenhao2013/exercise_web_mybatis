@@ -14,7 +14,7 @@ import java.util.List;
  * <p>
  * 获取连接,加载驱动(不是DAO的工作)
  */
-public class MessageDao implements MessageDaoImpl{
+public class MessageDao implements MessageDaoImpl {
 
     @Override
     public List<Message> queryMessages(String command, String description) {
@@ -67,6 +67,10 @@ public class MessageDao implements MessageDaoImpl{
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public void deleteOneMessages(String id) {
     }
 
 }

@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
         MessageDaoImpl messageDao = new MessageBatisDao();
+        messageDao.deleteOneMessages("6");
         List<Message> messages = messageDao.queryMessages("", "");
     }
 }

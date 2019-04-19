@@ -16,7 +16,7 @@
         <!--  #{command} mybatis 会将 #{} 处理成 ? 号 -->
         <if test="command!=null and !&quot;&quot;.equals(command.trim())">and COMMAND = #{command}</if>
         <if test="description!=null and !&quot;&quot;.equals(description.trim())">
-            and DESCRIPTION like  '%' #{description} '%'
+            and DESCRIPTION like '%' #{description} '%'
         </if>
     </select>
 
@@ -30,5 +30,9 @@
             and DESCRIPTION like '%' #{_parameter.description} '%'
         </if>
     </select>
+
+    <delete id="deleteOneMessage" parameterType="int">
+        delete from MESSAGE where ID = #{_parameter}
+    </delete>
 
 </mapper>

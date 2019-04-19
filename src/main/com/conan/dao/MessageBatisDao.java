@@ -39,4 +39,20 @@ public class MessageBatisDao implements MessageDaoImpl {
         }
         return queryMessages;
     }
+
+    @Override
+    public void deleteOneMessages(String id) {
+
+        SqlSession sqlSession = null;
+        try {
+            sqlSession = DbAccess.getSqlSession();
+            int idInt = Integer.valueOf(id);
+            sqlSession.delete("Message.deleteOneMessage", idInt);
+            sqlSession.commit();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            DbAccess.closeSqlSession(sqlSession);
+        }
+    }
 }
