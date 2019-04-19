@@ -14,8 +14,8 @@
     <select id="queryMessages" parameterType="com.conan.beans.Message" resultMap="MessageResult">
         select ID,COMMAND,DESCRIPTION,CONTENT from MESSAGE where 1=1
         <!--  #{command} mybatis 会将 #{} 处理成 ? 号 -->
-        <if test="command!=null and &quot;&quot;.equals(command.trim())">and COMMAND = #{command}</if>
-        <if test="description!=null and &quot;&quot;.equals(description.trim())">and DESCRIPTION like
+        <if test="command!=null and !&quot;&quot;.equals(command.trim())">and COMMAND = #{command}</if>
+        <if test="description!=null and !&quot;&quot;.equals(description.trim())">and DESCRIPTION like
             '%'#{description}'%'
         </if>
     </select>
