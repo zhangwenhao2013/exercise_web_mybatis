@@ -41,6 +41,16 @@
         <servlet-class>com.conan.servlet.DeleteBatchMeesageServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>InitTalkServlet</servlet-name>
+        <servlet-class>com.conan.servlet.InitTalkServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>AutoReplyServlet</servlet-name>
+        <servlet-class>com.conan.servlet.AutoReplyServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>ListServlet</servlet-name>
         <url-pattern>/List.action</url-pattern>
@@ -55,6 +65,16 @@
     <servlet-mapping>
         <servlet-name>DeleteBatchMeesageServlet</servlet-name>
         <url-pattern>/DeleteBatch.action</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>InitTalkServlet</servlet-name>
+        <url-pattern>/InitTalk</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AutoReplyServlet</servlet-name>
+        <url-pattern>/AutoReplyServlet.action</url-pattern>
     </servlet-mapping>
 
 

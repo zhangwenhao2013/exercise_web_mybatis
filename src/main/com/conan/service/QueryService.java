@@ -6,7 +6,7 @@ import com.conan.dao.MessageDao;
 
 import java.util.List;
 
-public class ListService {
+public class QueryService {
 
     public List<Message> queryMessageList(String command, String description) {
         //

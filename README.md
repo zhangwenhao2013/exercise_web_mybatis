@@ -143,7 +143,7 @@ org.apache.ibatis.exceptions.PersistenceException:
 	org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:150)
 	org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
 	com.conan.dao.MessageBatisDaoImpl.queryMessages(MessageBatisDao.java:27)
-	com.conan.service.ListService.queryMessageList(ListService.java:16)
+	com.conan.service.QueryService.queryMessageList(ListService.java:16)
 	com.conan.servlet.ListServlet.doGet(ListServlet.java:20)
 	javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
 	javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
