@@ -31,6 +31,12 @@
         </if>
     </select>
 
+    <!--根据Command 查询-->
+    <select id="queryMessageByCommand" parameterType="java.lang.String" resultMap="MessageResult">
+        select ID,COMMAND,DESCRIPTION,CONTENT from MESSAGE where 1=1
+        <if test="_parameter!=null and !&quot;&quot;.equals(_parameter.trim())">and COMMAND = #{_parameter}</if>
+    </select>
+
     <!--单条删除-->
     <delete id="deleteOneMessage" parameterType="int">
         delete from MESSAGE where ID = #{_parameter}

@@ -39,6 +39,23 @@ public class MessageBatisDaoImpl implements MessageDao {
     }
 
     @Override
+    public List<Message> queryMessages(String command) {
+
+        SqlSession sqlSession = null;
+        List<Message> list = null;
+        try {
+            sqlSession = DbAccess.getSqlSession();
+            list = sqlSession.selectList("Message.queryMessageByCommand", command);
+            return list;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            DbAccess.closeSqlSession(sqlSession);
+        }
+        return null;
+    }
+
+    @Override
     public void deleteOneMessages(String id) {
 
         SqlSession sqlSession = null;

@@ -67,6 +67,11 @@ public class MessageDaoImpl implements MessageDao {
     }
 
     @Override
+    public List<Message> queryMessages(String command) {
+        return null;
+    }
+
+    @Override
     public void deleteOneMessages(String id) {
     }
 

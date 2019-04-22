@@ -16,6 +16,14 @@ public interface MessageDao {
     List<Message> queryMessages(String command, String description);
 
     /**
+     * 根据指令查询 对应的回复
+     *
+     * @param command
+     * @return
+     */
+    List<Message> queryMessages(String command);
+
+    /**
      * 删除单条message
      *
      * @param id messageid
