@@ -18,11 +18,12 @@
         from command a
         left join command_content b
         on b.COMMAND_ID = a.ID
-        where 1 = 1
 
-        <if test="_parameter!=null and !&quot;&quot;.equals(_parameter.trim())">
-            and a.NAME = #{_parameter}
-        </if>
+        <where>
+            <if test="_parameter!=null and !&quot;&quot;.equals(_parameter.trim())">
+                and a.NAME = #{_parameter}
+            </if>
+        </where>
 
     </select>
 
@@ -31,14 +32,17 @@
         from command a
         left join command_content b
         on b.COMMAND_ID = a.ID
-        where 1 = 1
-        <if test="name!=null and !&quot;&quot;.equals(name.trim())">
-            and a.NAME = #{name}
-        </if>
 
-        <if test="description!=null and !&quot;&quot;.equals(description.trim())">
-            and a.DESCRIPTION = #{description}
-        </if>
+        <where>
+
+            <if test="name!=null and !&quot;&quot;.equals(name.trim())">
+                and a.NAME = #{name}
+            </if>
+
+            <if test="description!=null and !&quot;&quot;.equals(description.trim())">
+                and a.DESCRIPTION = #{description}
+            </if>
+        </where>
     </select>
 
 
