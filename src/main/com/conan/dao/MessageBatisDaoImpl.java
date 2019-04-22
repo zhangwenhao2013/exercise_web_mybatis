@@ -63,7 +63,7 @@ public class MessageBatisDaoImpl implements MessageDao {
         try {
             sqlSession = DbAccess.getSqlSession();
             int idInt = Integer.valueOf(id);
-            sqlSession.delete("Message.deleteOneMessage", idInt);
+            sqlSession.delete("Command.deleteOneMessage", idInt);
             sqlSession.commit();
         } catch (IOException e) {
             e.printStackTrace();
@@ -77,7 +77,7 @@ public class MessageBatisDaoImpl implements MessageDao {
         SqlSession sqlSession = null;
         try {
             sqlSession = DbAccess.getSqlSession();
-            int delete = sqlSession.delete("Message.deleteBatchMessage", list);
+            int delete = sqlSession.delete("Command.deleteBatchMessage", list);
             sqlSession.commit();
         } catch (IOException e) {
             e.printStackTrace();

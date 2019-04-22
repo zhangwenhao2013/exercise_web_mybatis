@@ -37,10 +37,7 @@
         <if test="_parameter!=null and !&quot;&quot;.equals(_parameter.trim())">and COMMAND = #{_parameter}</if>
     </select>
 
-    <!--单条删除-->
-    <delete id="deleteOneMessage" parameterType="int">
-        delete from MESSAGE where ID = #{_parameter}
-    </delete>
+
 
     <!--批量删除-->
     <delete id="deleteBatchMessage" parameterType="java.util.List">
