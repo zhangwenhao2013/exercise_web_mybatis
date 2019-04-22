@@ -41,6 +41,6 @@ public class QueryService {
             Message message = list.get(i);
             return message.getDescription();
         }
-        return null;
+        return Consts.CONSTS_DEFAULT;
     }
 }
