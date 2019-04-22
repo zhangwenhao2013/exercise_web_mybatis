@@ -22,5 +22,7 @@
 
     <mappers>
         <mapper resource="com/conan/config/sqlXml/Message.xml"/>
+        <mapper resource="com/conan/config/sqlXml/Command.xml"/>
+        <mapper resource="com/conan/config/sqlXml/CommandContent.xml"/>
     </mappers>
 </configuration>

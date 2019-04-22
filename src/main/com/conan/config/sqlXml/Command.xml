@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Command">
+
+    <resultMap id="CommandResult" type="com.conan.beans.Command">
+
+        <id column="C_ID" jdbcType="INTEGER" property="id"/>
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
+
+        <collection property="contentList" resultMap="CommandContent.CommandContentResult"/>
+    </resultMap>
+
+    <select id="selectCommandList" parameterType="String" resultMap="CommandResult">
+        select a.ID C_ID , a.NAME ,a.DESCRIPTION , b.ID, b.CONTENT ,b.COMMAND_ID
+        from command a
+        left join command_content b
+        on b.COMMAND_ID = a.ID
+    </select>
+
+    <select id="selectCommandListByCommand" parameterType="com.conan.beans.Command" resultMap="CommandResult">
+        select a.ID C_ID , a.NAME ,a.DESCRIPTION , b.ID, b.CONTENT ,b.COMMAND_ID
+        from command a
+        left join command_content b
+        on b.COMMAND_ID = a.ID
+        where 1 = 1
+        <if test="name!=null and !&quot;&quot;.equals(name.trim())">
+            and a.NAME = #{name}
+        </if>
+
+        <if test="description!=null and !&quot;&quot;.equals(description.trim())">
+            and a.DESCRIPTION = #{description}
+        </if>
+    </select>
+
+</mapper>

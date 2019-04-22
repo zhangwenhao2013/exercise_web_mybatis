@@ -1,5 +1,6 @@
 package com.conan.dao;
 
+import com.conan.beans.Command;
 import com.conan.beans.Message;
 
 import java.util.List;
@@ -32,4 +33,8 @@ public interface MessageDao {
     void deleteOneMessages(String id);
 
     void deleteBathcMessages(List<Integer> list);
+
+    List<Command> queryCommands(String command);
+
+    List<Command> queryCommands(String command, String description);
 }

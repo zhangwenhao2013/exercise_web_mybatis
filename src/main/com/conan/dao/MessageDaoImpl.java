@@ -1,5 +1,6 @@
 package com.conan.dao;
 
+import com.conan.beans.Command;
 import com.conan.beans.Message;
 
 import java.sql.*;
@@ -78,6 +79,16 @@ public class MessageDaoImpl implements MessageDao {
     @Override
     public void deleteBathcMessages(List<Integer> list) {
 
+    }
+
+    @Override
+    public List<Command> queryCommands(String command) {
+        return null;
+    }
+
+    @Override
+    public List<Command> queryCommands(String command, String description) {
+        return null;
     }
 
 }

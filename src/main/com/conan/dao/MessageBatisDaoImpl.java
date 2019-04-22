@@ -1,6 +1,7 @@
 package com.conan.dao;
 
 import com.conan.Db.DbAccess;
+import com.conan.beans.Command;
 import com.conan.beans.Message;
 import org.apache.ibatis.session.SqlSession;
 
@@ -84,5 +85,41 @@ public class MessageBatisDaoImpl implements MessageDao {
             DbAccess.closeSqlSession(sqlSession);
         }
 
+    }
+
+    @Override
+    public List<Command> queryCommands(String command) {
+        SqlSession sqlSession = null;
+        List<Command> list = null;
+        try {
+            sqlSession = DbAccess.getSqlSession();
+            list = sqlSession.selectList("Command.selectCommandList", command);
+            return list;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            DbAccess.closeSqlSession(sqlSession);
+        }
+        return null;
+    }
+
+    @Override
+    public List<Command> queryCommands(String command, String description) {
+        SqlSession sqlSession = null;
+        List<Command> list = null;
+        try {
+            sqlSession = DbAccess.getSqlSession();
+            Command com = new Command();
+            com.setName(command);
+            com.setDescription(description);
+
+            list = sqlSession.selectList("Command.selectCommandListByCommand", com);
+            return list;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            DbAccess.closeSqlSession(sqlSession);
+        }
+        return null;
     }
 }
