@@ -16,6 +16,11 @@
         <url-pattern>/List.action</url-pattern>
     </filter-mapping>
 
+    <filter-mapping>
+        <filter-name>filter</filter-name>
+        <url-pattern>/InitTalk</url-pattern>
+    </filter-mapping>
+
     <listener>
         <listener-class>com.conan.listener.ApplicationListener</listener-class>
     </listener>

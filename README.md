@@ -220,6 +220,68 @@ org.apache.ibatis.exceptions.PersistenceException:
 2: 接口的实现才使用 XxxxImpl 命名 , 接口使用Xxx
 
 
+第14 更改表结构 使用双表
+
+1:如果未添加到 mybatis config xml 下的sql 映射文件; 执行对应的sql 语句会抛出非法参数异常 
+
+Mapped Statement collection does not contain value for xxx.xxx;
+
+2:常用标签  
+```
+<where > 1: 可以替代 jdbc 中的 where 1=1   2: 可以去掉去掉and
+<sql> 可以服用 表字段  配合 <include> 使用
+<sql id ="columns" >x1 ,x2,x3</sql> 
+<include refid ="columns"/>
+
+<set> 类似where 标签 , 1:可以去掉 ',';
+<update>
+    <set>
+        <if></if>
+        <if></if>
+        <if></if>
+    </set>
+</update>
+
+<trim> 标签 可以替代where set
+
+<trim prefix ="where" //如果trim中间的内容有内容输出 就在前面加上where
+       suffixOverides ="test" //如果trim中间的内容有内容输出 就在后面加上test
+       prefixOver ="and/or"  //去掉 and 和 or
+
+</trim>
+
+<choose>
+    <when></when>
+    <when></when>
+    <when></when>
+    <otherwise></otherwise>
+</choose>
+
+配置关系标签
+<collection property ="" resultMap =""/> 一对多关系中 主表关联子表 查询主表时带出字表的内容
+
+<association property ="" resultMap =""/> 一对多关系中 子表关联主表 查询子表时带出主表的内容
+
+<insert useGeneraterdKeys ="true"  //使用自增属性 主键
+         keyProperty =" 对应的属性名"
+></insert>
+
+```
+
+3:column : 数据库的列名,不是数据库表中的列名,而是Sql语句查询的结果集的列名;  也就是sql语句中的名字 有别名的时候是别名;
+   
+
+4: 易混概念
+
+resultMap: Id   resultType : java类名;
+parameterMap: id(官方不推荐使用)  parameterType: java类名
+```$xslt
+#{} --> mybatis 会预翻译成 ? 
+${} --> mybatis  没有预编译效果  会直接被替换成内容;  配合order by 使用  :
+```
+
+
+
 
 
 
