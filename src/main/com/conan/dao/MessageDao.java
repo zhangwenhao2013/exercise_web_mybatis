@@ -5,6 +5,9 @@ import com.conan.beans.Message;
 
 import java.util.List;
 
+/**
+ * 这个dao 自从 使用接口替换 mybatis 的 namespace 之后就只起到隔离作用了
+ */
 public interface MessageDao {
 
     /**
