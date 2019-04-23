@@ -3,6 +3,7 @@ package com.conan.dao;
 import com.conan.Db.DbAccess;
 import com.conan.beans.Command;
 import com.conan.beans.Message;
+import com.conan.dao.newDao.MybatisMessageDao;
 import org.apache.ibatis.session.SqlSession;
 
 import java.io.IOException;
@@ -63,7 +64,9 @@ public class MessageBatisDaoImpl implements MessageDao {
         try {
             sqlSession = DbAccess.getSqlSession();
             int idInt = Integer.valueOf(id);
-            sqlSession.delete("Command.deleteOneMessage", idInt);
+            MybatisMessageDao mapper = sqlSession.getMapper(MybatisMessageDao.class);
+            mapper.deleteOneMessage(idInt);
+//            sqlSession.delete("Command.deleteOneMessage", idInt);
             sqlSession.commit();
         } catch (IOException e) {
             e.printStackTrace();
@@ -77,7 +80,9 @@ public class MessageBatisDaoImpl implements MessageDao {
         SqlSession sqlSession = null;
         try {
             sqlSession = DbAccess.getSqlSession();
-            int delete = sqlSession.delete("Command.deleteBatchMessage", list);
+            MybatisMessageDao mapper = sqlSession.getMapper(MybatisMessageDao.class);
+            mapper.deleteBatchMessage(list);
+//            int delete = sqlSession.delete("Command.deleteBatchMessage", list);
             sqlSession.commit();
         } catch (IOException e) {
             e.printStackTrace();
@@ -93,7 +98,9 @@ public class MessageBatisDaoImpl implements MessageDao {
         List<Command> list = null;
         try {
             sqlSession = DbAccess.getSqlSession();
-            list = sqlSession.selectList("Command.selectCommandList", command);
+//            list = sqlSession.selectList("Command.selectCommandList", command);
+            MybatisMessageDao mapper = sqlSession.getMapper(MybatisMessageDao.class);
+            list = mapper.selectCommandList(command);
             return list;
         } catch (IOException e) {
             e.printStackTrace();
@@ -113,7 +120,10 @@ public class MessageBatisDaoImpl implements MessageDao {
             com.setName(command);
             com.setDescription(description);
 
-            list = sqlSession.selectList("Command.selectCommandListByCommand", com);
+            MybatisMessageDao mapper = sqlSession.getMapper(MybatisMessageDao.class);
+            list = mapper.selectCommandListByCommand(com);
+
+//            list = sqlSession.selectList("Command.selectCommandListByCommand", com);
             return list;
         } catch (IOException e) {
             e.printStackTrace();
