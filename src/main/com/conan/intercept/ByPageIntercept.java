@@ -49,7 +49,7 @@ public class ByPageIntercept implements Interceptor {
 
             if (resultSet.next()) {
                 int account = resultSet.getInt(1);
-                page.setCurrentPage(account);
+                page.setCurrentPage(account);  //这里操作的是page 在 parameters中的引用
             }
 
             String pageSql = sql + "limit" + page.getDbIndex() + "," + page.getDbNumber();

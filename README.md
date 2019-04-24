@@ -280,6 +280,37 @@ parameterMap: id(官方不推荐使用)  parameterType: java类名
 ${} --> mybatis  没有预编译效果  会直接被替换成内容;  配合order by 使用  :
 ```
 
+第15 拦截器  intercept
+
+1: 拦截 需要实现 ibatis 下的 intercept 接口; (创建)
+
+2: 在mybatis config xml 中配置 <plugins><plugin></plugin></plugins> (注册)
+
+3: 实现 Intercepte ,下面是执行顺序
+
+    3.1 : setProperties () :获取配置文件中配置的<property>
+    
+    3.2 : plugin() : 根据注解的内容判断是否要拦截; 简易判断,是否拦截还需要进一步判断;
+    
+    3.3 : intercept() :具体的拦截逻辑,使用动态代理的方式,在目标方法之前执行一系列操作(拦截),
+          最终在通过invocation.proced()方法调用真正的方法;
+    
+        3.3.1 :Invocation 类可以提供注解标注的类的实例,要拦截的方法,传入方法的参数;
+        
+        3.3.2 :MateObject mybatis 提供的反射帮助类,可以访问注解标注类的所有内容;
+        
+        3.3.3 :MateObject 访问具体对象内容的方式类似 OGNL ;
+        
+        3.3.4 :intercept()中,执行完拦截的操作,最终需要调用invocation.proceed();
+        
+        3.3.5 : intercept() 操作应该就是AOP中 切入一个点执行了一系列操作之后,在回到原来的程序继续执行;
+       
+    3.4 :  使用MateObject 需要根据源码逻辑具体分析怎么调用参数;
+    
+            
+            
+       
+ 
 
 
 
